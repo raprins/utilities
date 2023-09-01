@@ -11,7 +11,7 @@
   "files": ["dist"],
   "keywords": [
     "util",
-    "hacks"
+    "Event Emitter"
   ],
   "author": "Princis RAKOTOMANGA",
   "private": false,

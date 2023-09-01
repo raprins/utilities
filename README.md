@@ -4,17 +4,21 @@ These are some utilities function or Classes that I use
 ## Event Emitter
 This is a simple Typed Event Emitter
 ```ts
-    import { EventEmitter } from "@raprincis/utilities"
+    import { EventEmitter } from "@raprincis/utilities";
 
-    type EventMap = {
-        connected : []
+    type Events = {
+        // Event when user is connected
+        connected: [user: { firstname: string }]
     }
 
-    // Declare Class with 
-    export default class MyClass extends EventEmitter<EventMap> {}
+    class ConnectionManager extends EventEmitter<Events> {
+        /** Some other implementation */
+    }
 
-    // Somewhere in code
-    const instance = MyClass()
-    instance.on("connected", () => { /** */ })
+    const service = new ConnectionManager()
+    service.on("connected", (user) => {
+        console.log(`User ${user.firstname} is connected`)
+    })
 
+    service.emit("connected", { firstname: "RAKOTOMANGA" })
 ```
